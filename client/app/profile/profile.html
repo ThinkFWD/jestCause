@@ -16,8 +16,6 @@
 </div>
 
 <!-- Content -->
-
-
 <div ng-if="spinner" class="spinner-style">
     <img ng-src="https://media.giphy.com/media/qjqUcgIyRjsl2/giphy.gif">
 </div>
@@ -44,17 +42,14 @@
     </td>
     <td class="table-charts">
 
-    <center>    
-    <div ng-if="hide">
-      <h2> Personality</h2> 
-    </div>
-      <div id=d3Display></div>
-   
-   <div ng-if="hide">
+    <center>  
+
+  <div ng-if="hide">
     <h2> Invited Events </h2>
    </div> 
 
      <div class="profile-card-container"> 
+       <div class="profile-horizontal-scroll-wrapper">
       <div ng-repeat='item in events' ng-click='openEvent(item)'>   
         <div class='event-card'>
              <img src="{{item.profile_url}} " class="card-image img-circle" alt='https://angular.io/resources/images/logos/angular2/angular.png'>
@@ -62,6 +57,7 @@
              <div class= "venue">{{item.venue}}</div>
              <div class= "when">{{item.when}}</div>
         </div>
+      </div>
       </div>
     </div>
 
@@ -78,43 +74,14 @@
         </div>
       </div>
     </div>
+
+    <div ng-if="hide">
+      <h2> Personality</h2> 
+    </div>
+      <div id=d3Display></div>
+   
+  
     </center>
     </td>
   </tr>
 </table>
-
-
-
-<!-- <div class="profile-container">
-  <div class="row" ng-if="spinner">
-    <img class="user-photo" ng-src="http://sample-env.zhtjbs6sdb.us-west-2.elasticbeanstalk.com/spiffygif_46x46.gif">
-  </div>
-
-  <div class="row">
-    <div class="col">
-      <img class="img-circle" src="{{user.profile_url}}">
-      <div>{{userData.name}}</div>
-      <div>{{userData.followers}}</div>
-      <div>{{userData.friends}}</div>
-      <li ng-repeat="tweet in userData.tweets | limitTo:3"> {{tweet}}</li> 
-    </div>
-
-    <div class="col">
-      <h2> Profile </h2>
-      <div class="row" id=d3Display></div>
-      <div class="row" id=d3Display_Donut></div>
-      <h2> Events </h2>  
-      <li ng-repeat="item in events"> {{item}} </li>
-    </div>	
-	</div>
-</div> -->
-
-
-
-      
-      
-<!-- 
-<pre>{{user}}</pre>
-<pre>{{events}}</pre> 
-<pre>{{hostedEvents}}</pre>
--->
