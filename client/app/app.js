@@ -3,6 +3,11 @@ angular.module('hang', [
 	'hang.home',
 	'hang.services',
 	'ngMaterial',
+	'hang.profile',
+	'hang.eventpage',
+	'hang.tone', 
+	'hang.render', 
+	'hang.aster',
 	'ngRoute'
 ])
 .config(function($routeProvider, $httpProvider, $locationProvider){
@@ -27,13 +32,20 @@ angular.module('hang', [
 			templateUrl: 'app/event/events.html',
 			controller: 'HomeController'
 		})
+		.when('/eventpage', {
+			templateUrl: 'app/eventpage/eventpage.html',
+			controller: 'eventPageCtrl'
+		})
+		.when('/profile', {
+			templateUrl: 'app/profile/profile.html',
+			controller: 'ProfileController'
+		})
 		.otherwise({
 			redirectTo: '/signin'
 		});
-
 		$locationProvider.hashPrefix('');
 		$httpProvider.interceptors.push('AttachTokens');
-	})	
+	})
 
 
 	.factory('AttachTokens', function ($window) {

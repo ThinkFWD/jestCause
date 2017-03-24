@@ -18,12 +18,12 @@ module.exports = {
 				}
 				else {
 					User.signin(req.body.email, req.body.password, function(err, match) {
-						if (err) {
-							next(new Error('Wrong password!'));
-						}
-						else {
+						if (match) {
 							var token = jwt.encode(user, 'secret');
 							res.json({token: token});
+						}
+						else {
+							res.sendStatus(401);
 						}
 					});
 				}
@@ -83,8 +83,3 @@ module.exports = {
     }
   }
 }
-
-
-
-
-

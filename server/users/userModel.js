@@ -34,12 +34,13 @@ module.exports = {
 				name: user.name,
 				email: user.email,
 				password: result,
+				twitter_handle: user.twitter_handle,
 				profile_url: user.profile_url
 			}).then((inserted) => {
 				db.select().from('users').where('email', user.email)
 				.then(newUser => {
 					var token = jwt.encode(newUser, 'secret');
-					callback(null, token); 
+					callback(null, token);
 				})
 			}).catch((err) => {
 				callback(err);

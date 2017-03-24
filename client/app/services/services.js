@@ -45,7 +45,6 @@ angular.module('hang.services', [])
 		var currentUser;
 
 		var getUsers = function() {
-			console.log('get users getting called')
 			return $http({
 				method: 'GET',
 				url: '/api/users/'
@@ -62,7 +61,6 @@ angular.module('hang.services', [])
 				data: user
 			})
 			.then(function(resp) {
-				console.log(resp, 'from updateUser');
 				return resp.data
 			});
 		};
@@ -72,13 +70,11 @@ angular.module('hang.services', [])
 		};
 
 		var getCurrentUser = function() {
-			console.log('getcurrentuser getting called')
 			return $http({
 				method: 'GET',
 				url: '/api/currentUser',
 			})
 			.then(user => {
-				console.log('user: ', user);
 				return user.data;
 			});
 		}
@@ -93,17 +89,42 @@ angular.module('hang.services', [])
 
 	.factory('Events', function($http, $location, $window) {
 		var guestList = [];
-		
+
+		var getAttendees = function(eventID) {
+			return $http({
+				method: 'GET',
+				url: '/api/attendees',
+				headers: {
+					id: eventID
+				}
+			})
+			.then(function(resp) {
+				return resp.data;
+			})
+		};
+
+		var getAllEvents = function(){
+			return $http({
+				method: 'GET',
+				url: '/api/allevents'
+			})
+			.then(resp =>{
+				return resp.data;
+			})
+			.catch(err => {
+				console.log("There was a error")
+			})
+		};
+
 		var getEvents = function(user) {
 			return $http({
 				method: 'GET',
 				url: '/api/events',
 				headers: {
-					email: user.email 
+					email: user.email
 				}
 			})
 			.then(resp => {
-				console.log('inside get events ', resp);
 				return resp.data;
 			});
 		};
@@ -120,26 +141,24 @@ angular.module('hang.services', [])
 		};
 
 		var createEvent = function(event) {
-			console.log('inside services with event: ', event)
 			return $http({
 				method: 'POST',
 				url: '/api/events',
 				data: {
 					email: event.email,
-					where: event.where,
+					venue: event.venue,
+					address: event.address,
 					when: event.when,
 					description: event.description,
 					guests: event.guests
 				}
 			})
 			.then(resp => {
-				console.log(resp)
 				return resp;
 			});
 		}
 
 		var saveGuestList = function(guests) {
-			console.log('running save guests: ', guests)
 			guestList = guests;
 		};
 
@@ -151,9 +170,22 @@ angular.module('hang.services', [])
 			createEvent,
 			getHostedEvents,
 			saveGuestList,
-			getGuestList
+			getGuestList,
+			getAllEvents,
+			getAttendees
 		}
-	});
-
-
-
+	})
+	.factory('Insert', function($http, $location){
+		const current = {};
+		current.insertEvent = function(event){
+			current.currentEvent = event;
+		}
+		return current;
+	})
+	.factory('UserInsert', function($http, $location){
+		const current = {};
+		current.insert = function(user){
+			current.user = user
+		}
+		return current;
+	})

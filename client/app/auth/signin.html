@@ -1,27 +1,45 @@
-<md-content class="md-padding">
-	<md-toolbar layout-align="center" layout="row">
-		<md-button>
-			<h1>Hang</h1>
-		</md-button>
-	</md-toolbar>
-	<div class="form">
-		<div class="md-inline-form" ng-cloak layout="column">
-			<md-content layout="column" class="md-padding">
-				<div layout="column" layout-align="center center">
-				<form id="login" ng-submit="signin()" layout="column">
-					<md-input-container>
-						<label>Email</label>
-						<input ng-model="user.email" ng-required="true">
-					</md-input-container>
-					<md-input-container>
-						<label>Password</label>
-						<input type = "password" ng-model="user.password" ng-required="true">
-					</md-input-container>
-					<md-button type="submit" class="md-raised md-primary" ng-click="signin()">Sign In</md-button>
-				</form>
-					<p>OR</p>
-					<md-button class="md-raised md-primary" ng-click="signuplink()">Sign Up</md-button>
-				</div>
-			</md-content>
-		</div>
-	</div>
+
+    <div class="signin-container">
+      <div class="signin-box">
+        <div class="siginin-field">
+          <h1 class="signin-header text-center heading"><img src="images/favicon.ico"> HANG <img src="images/favicon.ico"></h1>
+          <hr class="hr-style">
+          <form id="login" class="form-group" ng.model="user" ng-submit="signin(user)">
+            <div class="form-group">
+              <label class="form-label">Email:</label>
+              <input class="form-input form-control" ng-model="user.email" ng-required="true" placeholder="Email...">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Password:</label>
+              <input class="form-input form-control" type="password" ng-model="user.password" ng-required="true" placeholder="Password...">
+            </div>
+            <div class="submit-buttons">
+              <button type="submit" class="sbmt btn btn-lg"><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i> Sign in</button>
+              <text class="or text-center">OR</text>
+              <button class="btn sgn btn-sm" ng-click="signuplink()"><i class="glyphicon glyphicon-pencil" aria-hidden="true"></i> Sign Up</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="form">
+        <div class="md-inline-form" ng-cloak layout="column">
+            <md-content layout="column" class="md-padding">
+                <div layout="column" layout-align="center center">
+                    <form id="login" ng-submit="signin()" layout="column">
+                        <md-input-container>
+                            <label>Email</label>
+                            <input ng-model="user.email" ng-required="true">
+                        </md-input-container>
+                        <md-input-container>
+                            <label>Password</label>
+                            <input type="password" ng-model="user.password" ng-required="true">
+                        </md-input-container>
+                        <md-button type="submit" class="md-raised md-primary" ng-click="signin()">Sign In</md-button>
+                    </form>
+                    <p>OR</p>
+                    <md-button class="md-raised md-primary" ng-click="signuplink()">Sign Up</md-button>
+                </div>
+            </md-content>
+        </div>
+    </div> -->

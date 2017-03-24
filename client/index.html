@@ -5,31 +5,41 @@
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
 		<title>Hang</title>
 		<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="styles/style.css" />
+		<link rel="stylesheet" type="text/css" href="styles/eventpage.css" />
+		<link rel="stylesheet" type="text/css" href="styles/profile.css" />
+		<link rel="stylesheet" type="text/css" href="styles/auth.css" />
  	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+<link href="https://fonts.googleapis.com/css?family=Bree+Serif|Lato" rel="stylesheet">
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144.png" />
 <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/apple-touch-icon-152x152.png" />
 <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32" />
 <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16" />
+ <script src="http://d3js.org/d3.v3.min.js"></script>
+ <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 <meta name="application-name" content="&nbsp;"/>
 <meta name="msapplication-TileColor" content="#FFFFFF" />
 <meta name="msapplication-TileImage" content="/images/mstile-144x144.png" />
 
 	</head>
 	<body>
-		<div ng-view></div>
+		<div ng-view autoscroll="true"></div>
 		<script src="node_modules/angular/angular.js"></script>
 		<script src="node_modules/angular-route/angular-route.js"></script>
 		<script src="node_modules/angular-material/angular-material.js"></script>
 		<script src="node_modules/angular-aria/angular-aria.js"></script>
 		<script src="node_modules/angular-animate/angular-animate.js"></script>
 		<script src="app/auth/auth.js"></script>
+		<script src="app/profile/profileController.js"></script>
 		<script src="app/home/home.js"></script>
+		<script src="app/eventpage/eventpage.js"></script>
 		<script src="app/services/services.js"></script>
-
-
 		<script src="app/app.js"></script>
+		<script src="app/profile/tone.js"></script>
+		<script src="app/profile/render.js"></script>
+		<script src="app/profile/aster.js"></script>
 
 	</body>
 </html>

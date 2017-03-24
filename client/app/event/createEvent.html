@@ -1,4 +1,4 @@
-<div style="text-align: center" class="md-inline-form" ng-cloak layout="column">
+<div style="text-align: center; width: 40vw;" class="md-inline-form" ng-cloak layout="column">
 	<h2>Create Event</h2>
 	<md-content layout="column" class="md-padding">
 		<div layout="column" layout-align="center center">
@@ -7,26 +7,29 @@
 				<input ng-model="event.description">
 			</md-input-container>
 			<md-input-container>
-				<label>Where</label>
-				<input ng-model="event.where">
+				<label>Venue</label>
+				<input ng-model="event.venue">
 			</md-input-container>
-
+			<md-input-container>
+				<label>Address</label>
+				<input ng-model="event.address">
+			</md-input-container>
 			<md-input-container>
 				<label>When</label>
 				<input ng-model="event.when">
 			</md-input-container>
 			<label>Guests</label>
-			<md-list-item layout="column">
+			<div class="guestList">
 				<div class="createGuestList" ng-repeat="guest in eventGuests">
 				<p>{{guest}}</p>
 				</div>
-			</md-list-item>
+			</div>
 			<md-button ng-click="createEvent(); closeDialog($event)">Create</md-button>
 		</div>
 	</md-content>
 </div>
 
-<!-- <div style="text-align: center" class="md-inline-form" ng-cloak layout="column">	
+<!-- <div style="text-align: center" class="md-inline-form" ng-cloak layout="column">
 <h2>Create Event</h2>
 	<md-content layout="column" class="md-padding">
 	<div layout="column" layout-align ="center center">
@@ -53,4 +56,3 @@
 	</div>
 	</md-content>
 </div> -->
-

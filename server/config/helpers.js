@@ -8,7 +8,7 @@ module.exports = {
 		var token = req.headers['x-access-token'];
 		if (!token) {
 			next(new Error('No Token!'));
-		} 
+		}
 		else {
 			var user = jwt.decode(token, 'secret');
 			User.findOne({email: user.email})
@@ -47,17 +47,20 @@ module.exports = {
 	checkPass: function(user, pass, callback) {
 		db.select().from('users')
 		.where('email', user)
-		.then(function(user) {	
+		.then(function(user) {
 			bcrypt.compare(pass, user[0].password, function(err, isMatch) {
 				if (err) {
 					console.log('pass error ', err)
 					callback(err, null);
 				}
 				else {
+					console.log("THIS IS THE DB PASSWORD: ",user[0].password)
+					console.log("INPUT PASSWORD: ", pass)
+
 					console.log('match ', isMatch)
 					callback(null, isMatch);
 				}
 			});
 		});
-	}	
+	}
 }

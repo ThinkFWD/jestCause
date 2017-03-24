@@ -1,20 +1,22 @@
-<div ng-cloak>
-	<md-content class="md-padding">
-		<md-toolbar layout-align="space-between" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" layout="row">
-			<md-button ng-click="toHome()" name="goHome">
-				Home
-			</md-button>
-			<md-button ng-class="{'hang': user.hang}" ng-click="toggleHang()" name="hangButton" id="hangButton">
-				Hang
-			</md-button>
-			<div ng-include="'app/event/eventMenu.html'"></div>
-		</md-toolbar>
-	</md-content>
+<div ng-controller="HomeController" ng-cloak>
+  <md-content class="md-padding">
+    <md-toolbar layout-align="space-between" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" layout="row">
+      <md-button ng-click="goHome()" name="homeButton">
+        <i class="glyphicon glyphicon-home"></i>
+      </md-button>
+      <md-button ng-click="createEventClick($event)" name="createEvent">
+        Create Event
+      </md-button>
+      <md-button ng-class="{'hang': user.hang}" ng-click="toggleHang()" name="hangButton" id="hangButton">
+        Hang
+      </md-button>
+      <div ng-include="'app/home/menu.html'"></div>
+    </md-toolbar>
+  </md-content>
 </div>
-
-<div style="margin-top: 50px" class="home" ng-cloak layout="row" layout-align="start start">	
+<div style="margin-top: 50px" class="home" ng-cloak layout="row" layout-align="start start">
 	<div flex>
-	<md-content flex layout-align="center center" class="md-padding">		
+	<md-content flex layout-align="center center" class="md-padding">
 		<md-toolbar layout="row" class="md-hue-4">
 			<div class="md-toolbar-tools">
 				<span style="text-align: center">Invites</span>
@@ -24,9 +26,9 @@
 				<md-list-item class="md-3-line" ng-repeat="item in events" ng-click="null">
 					<img ng-src={{item.profile_url}} class="md-avatar">
 					<div flex layout="column" layout-align="start start" class="md-list-item-text">
-					<h3>{{item.description}}</h3>
+					<h3>{{item.descriptio}}</h3>
 					<p>When: {{item.when}}</p>
-					<p>Where: {{item.where}}</p>
+					<p>Venue: {{item.venue}}</p>
 					</div>
 			</md-list-item>
 			</md-list>
@@ -34,19 +36,19 @@
 	</div>
 
 
-	<md-content flex layout-align="start start" class="md-padding container">		
+	<md-content flex layout-align="start start" class="md-padding container">
 		<md-toolbar layout="row" class="md-hue-4">
 			<div class="md-toolbar-tools">
 				<span style="text-align: center">Your Hosted Events</span>
 			</div>
 		</md-toolbar>
 			<md-list class="md-dense" flex>
-				<md-list-item class="md-3-line" ng-repeat="item in hostedEvents" ng-click="null">
+				<md-list-item class="md-3-line"  ng-click="openEvent(item)" ng-repeat="item in hostedEvents" ng-click="null">
 					<img ng-src={{user.profile_url}} class="md-avatar">
 					<div flex layout="column" layout-align="start start" class="md-list-item-text">
 					<h3>{{item.description}}</h3>
 					<p>When: {{item.when}}</p>
-					<p>Where: {{item.where}}</p>
+					<p>Venue: {{item.venue}}</p>
 					</div>
 			</md-list-item>
 			</md-list>

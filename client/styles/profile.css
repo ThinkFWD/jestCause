@@ -1,0 +1,88 @@
+.search-field {
+  font-size: 1em;
+  color: black;
+}
+
+.profile-container {
+  height: 80%;
+  width: 90%;
+  margin-top: 5%;
+  margin-left: 10%;
+}
+
+.spinner-style {
+	left: 50%;
+	top: 50%;
+	position: absolute;
+}
+
+.table-profile {
+	width: 300px;
+	vertical-align: top;
+}
+
+.table-charts {
+	width: 400px;
+	vertical-align: top;
+}
+
+.profile-picture {
+	height: 225px;
+	width: 225px;
+	margin: 20px 10px 10px 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: auto;
+}
+
+.profile-image {
+	height: 150px;
+	width: 150px;
+}
+
+
+.profile-event-card{
+	background-color: #FFFFFF;
+	border: .5px solid #B5B5B5;
+	height: 225px;
+	width: 225px;
+	margin: 10px 10px 10px 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: auto;
+	-webkit-transition: all 200ms ease-in;
+  -webkit-transform: scale(1);
+  -ms-transition: all 200ms ease-in;
+  -ms-transform: scale(1);
+  -moz-transition: all 200ms ease-in;
+  -moz-transform: scale(1);
+  transition: all 200ms ease-in;
+  transform: scale(1);
+}
+
+.profile-event-card:hover{
+	  box-shadow: 2px 2px 10px #999999;
+	z-index: 2;
+	-webkit-transition: all 200ms ease-in;
+	-webkit-transform: scale(1.5);
+	-ms-transition: all 200ms ease-in;
+	-ms-transform: scale(1.5);
+	-moz-transition: all 200ms ease-in;
+	-moz-transform: scale(1.10);
+	transition: all 200ms ease-in;
+	transform: scale(1.10);
+}
+
+
+.profile-card-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin-left: 1%;
+	margin-top: .4%;
+	width: 100%;
+}

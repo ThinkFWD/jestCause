@@ -1,0 +1,48 @@
+<div ng-controller="HomeController" ng-cloak>
+  <md-content class="navbar navbar-fixed-top">
+    <md-toolbar layout-align="space-between" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" layout="row">
+      <md-button ng-click="goHome()" name="homeButton">
+        <i class="glyphicon glyphicon-home"></i>
+      </md-button>
+      <md-button class="heading" ng-click="createEventClick($event)" name="createEvent">
+        Create Event
+      </md-button>
+      <md-button class="heading" ng-class="{'hang': user.hang}" ng-click="toggleHang()" name="hangButton" id="hangButton">
+        Hang
+      </md-button>
+      <div ng-include="'app/home/menu.html'"></div>
+    </md-toolbar>
+  </md-content>
+</div>
+<div class="page-container">
+  <div class="event-container">
+    <div class="map">
+      <iframe
+        width="100%"
+        height="350"
+        frameborder="0" style="border:0"
+        ng-src="{{mapUrl}}" allowfullscreen>
+      </iframe>
+    </div>
+    <div class="event-info">
+      <div>
+        <span class="event-name heading">{{ currentEvent.description }}</span>
+        <span class="event-time pull-right"><i class="fa fa-clock-o" aria-hidden="true"></i>{{ currentEvent.when }}</span>
+      </div>
+      <div>
+        <span class="event-venue heading">{{ currentEvent.venue }}</span>
+        <span class="event-address">{{ currentEvent.address }}</span>
+      </div>
+    </div>
+    <hr class="hr-style">
+    <div class="attendee-list">
+      <div class="vertical-text heading">Attending</div>
+      <div class="attendees-container">
+        <div class="attendee" ng-repeat="user in attendees">
+          <img class="user-photo img-circle" ng-click="openUser(user)" src= {{user.profile_url}}>
+          <div class="user-name text-center">{{ user.name }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,25 +1,25 @@
 var clearDB = require('../../credentials/info.js');
 
-// var db = require('knex')({
-// 	client: 'mysql',
-// 	connection: {
-// 		host: clearDB.host,
-// 		user: clearDB.user,
-// 		password: clearDB.password,
-// 		database: clearDB.database
-// 	}
-// });
-
-
 var db = require('knex')({
 	client: 'mysql',
 	connection: {
-		host: '127.0.0.1',
-		user: 'root',
-		password: '',
-		database: 'hang'
+		host: clearDB.host,
+		user: clearDB.user,
+		password: clearDB.password,
+		database: clearDB.database
 	}
 });
+
+
+// var db = require('knex')({
+// 	client: 'mysql',
+// 	connection: {
+// 		host: '127.0.0.1',
+// 		user: 'root',
+// 		password: '',
+// 		database: 'hang'
+// 	}
+// });
 
 db.schema.hasTable('users').then(exists => {
 	if (!exists) {
@@ -29,6 +29,7 @@ db.schema.hasTable('users').then(exists => {
 			table.string('email').unique();
 			table.string('password');
 			table.string('profile_url');
+			table.string('twitter_handle');
 			table.boolean('hang').defaultTo(true);
 		});
 	}
@@ -42,7 +43,8 @@ db.schema.hasTable('events').then(exists => {
 	if (!exists) {
 		db.schema.createTable('events', function(table) {
 			table.increments();
-			table.string('where');
+			table.string('venue');
+			table.string('address');
 			table.string('when');
 			table.string('description');
 			table.integer('host_id').unsigned().references('users.id');
@@ -71,4 +73,3 @@ db.schema.hasTable('user_events').then(exists => {
 });
 
 module.exports = db;
-
